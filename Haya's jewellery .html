@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Haya's Jewellery</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    body {
+        font-family: 'Poppins', sans-serif;
+        color: #333;
+        background: #fffaf7;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    h1,
+    h2,
+    h3 {
+        font-family: 'Cormorant Garamond', serif;
+    }
+    /* =========================
+   NAVBAR
+========================= */
+    
+    .navbar {
+        height: 80px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 7%;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .logo {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 30px;
+        font-weight: 700;
+        color: #b8860b;
+    }
+    
+    .logo span {
+        color: #222;
+    }
+    
+    .navbar nav {
+        display: flex;
+        gap: 30px;
+    }
+    
+    .navbar nav a {
+        color: #333;
+        font-size: 14px;
+        font-weight: 500;
+        transition: 0.3s;
+    }
+    
+    .navbar nav a:hover {
+        color: #b8860b;
+    }
+    
+    .nav-icons {
+        display: flex;
+        gap: 15px;
+        font-size: 19px;
+    }
+    
+    .nav-icons span {
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    
+    .nav-icons span:hover {
+        color: #b8860b;
+    }
+    /* =========================
+   HERO
+========================= */
+    
+    .hero {
+        min-height: 650px;
+        background: linear-gradient( rgba(35, 20, 20, 0.55), rgba(35, 20, 20, 0.55)), linear-gradient(135deg, #e8d2bd, #7b4b3a);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+    }
+    
+    .hero-content {
+        max-width: 800px;
+        padding: 30px;
+    }
+    
+    .small-title {
+        color: #c89b3c;
+        font-size: 13px;
+        letter-spacing: 4px;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+    
+    .hero h1 {
+        font-size: 72px;
+        line-height: 1;
+        margin-bottom: 25px;
+    }
+    
+    .hero h1 span {
+        color: #b89137;
+    }
+    
+    .hero-text {
+        font-size: 16px;
+        max-width: 550px;
+        margin: auto;
+        line-height: 1.8;
+    }
+    
+    .hero-buttons {
+        margin-top: 35px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .btn,
+    .btn-outline,
+    .white-btn {
+        display: inline-block;
+        padding: 13px 30px;
+        transition: 0.3s;
+        font-size: 14px;
+    }
+    
+    .btn {
+        background: #b8860b;
+        color: white;
+    }
+    
+    .btn:hover {
+        background: #8d6708;
+    }
+    
+    .btn-outline {
+        border: 1px solid white;
+        color: white;
+    }
+    
+    .btn-outline:hover {
+        background: white;
+        color: #333;
+    }
+    /* =========================
+   SECTION TITLE
+========================= */
+    
+    .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    
+    .section-title p {
+        color: #b8860b;
+        letter-spacing: 3px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+    
+    .section-title h2 {
+        font-size: 45px;
+        color: #2c2421;
+        margin-top: 8px;
+    }
+    /* =========================
+   CATEGORIES
+========================= */
+    
+    .categories {
+        padding: 90px 7%;
+        background: white;
+    }
+    
+    .category-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
+    
+    .category-card {
+        padding: 35px 20px;
+        text-align: center;
+        border: 1px solid #eee0d8;
+        background: #fffaf7;
+        transition: 0.3s;
+    }
+    
+    .category-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    }
+    
+    .category-icon {
+        font-size: 55px;
+        margin-bottom: 15px;
+    }
+    
+    .category-card h3 {
+        font-size: 27px;
+        color: #3c2d27;
+    }
+    
+    .category-card p {
+        font-size: 13px;
+        color: #777;
+        margin: 10px 0 15px;
+    }
+    
+    .category-card a {
+        color: #b8860b;
+        font-size: 13px;
+        font-weight: 600;
+    }
+    /* =========================
+   PRODUCTS
+========================= */
+    
+    .products {
+        padding: 90px 7%;
+        background: #fffaf7;
+    }
+    
+    .product-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
+    
+    .product-card {
+        background: white;
+        overflow: hidden;
+        border: 1px solid #eee5df;
+        transition: 0.3s;
+    }
+    
+    .product-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+    
+    .product-image {
+        height: 280px;
+        background: linear-gradient(135deg, #f8eee8, #ead8cc);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .fake-jewellery {
+        font-size: 100px;
+        filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.15));
+    }
+    
+    .sale-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: #a52a2a;
+        color: white;
+        padding: 6px 12px;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+    
+    .product-image button {
+        position: absolute;
+        top: 13px;
+        right: 13px;
+        border: none;
+        background: white;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 19px;
+    }
+    
+    .product-info {
+        padding: 22px;
+    }
+    
+    .category-name {
+        color: #b8860b;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .product-info h3 {
+        font-size: 24px;
+        margin: 5px 0;
+        color: #302522;
+    }
+    
+    .rating {
+        color: #b89137;
+        font-size: 13px;
+        margin: 8px 0;
+    }
+    
+    .price {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 18px;
+    }
+    
+    .price span {
+        color: #a52a2a;
+        font-size: 17px;
+        font-weight: 600;
+    }
+    
+    .price del {
+        color: #999;
+        font-size: 12px;
+    }
+    
+    .buy-btn {
+        display: block;
+        text-align: center;
+        background: #2c2421;
+        color: white;
+        padding: 11px;
+        font-size: 13px;
+        transition: 0.3s;
+    }
+    
+    .buy-btn:hover {
+        background: #b89137;
+    }
+    /* =========================
+   SALE BANNER
+========================= */
+    
+    .sale-banner {
+        min-height: 350px;
+        background: linear-gradient( 120deg, #6e2c2c, #b8860b);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        padding: 50px 20px;
+    }
+    
+    .sale-banner p:first-child {
+        letter-spacing: 4px;
+        font-size: 12px;
+    }
+    
+    .sale-banner h2 {
+        font-size: 60px;
+        margin: 10px 0;
+    }
+    
+    .sale-banner h2 span {
+        color: #ffe7a1;
+    }
+    
+    .sale-banner p {
+        margin-bottom: 25px;
+    }
+    
+    .white-btn {
+        background: white;
+        color: #6e2c2c;
+        font-weight: 600;
+    }
+    
+    .white-btn:hover {
+        background: #2c2421;
+        color: white;
+    }
+    /* =========================
+   ABOUT
+========================= */
+    
+    .about {
+        min-height: 500px;
+        padding: 90px 10%;
+        display: flex;
+        align-items: center;
+        background: #fff;
+    }
+    
+    .about-content {
+        max-width: 650px;
+    }
+    
+    .about-content h2 {
+        font-size: 50px;
+        line-height: 1.1;
+        color: #302522;
+        margin: 10px 0 25px;
+    }
+    
+    .about-content h2 span {
+        color: #b8860b;
+    }
+    
+    .about-content>p:not(.small-title) {
+        color: #777;
+        line-height: 1.8;
+        margin-bottom: 15px;
+    }
+    /* =========================
+   NEWSLETTER
+========================= */
+    
+    .newsletter {
+        padding: 75px 20px;
+        background: #f4e9e1;
+        text-align: center;
+    }
+    
+    .newsletter>p:first-child {
+        color: #b8860b;
+        font-size: 12px;
+        letter-spacing: 3px;
+    }
+    
+    .newsletter h2 {
+        font-size: 42px;
+        margin: 8px 0;
+        color: #302522;
+    }
+    
+    .newsletter>p {
+        color: #777;
+    }
+    
+    .subscribe {
+        margin: 25px auto 0;
+        display: flex;
+        max-width: 500px;
+    }
+    
+    .subscribe input {
+        flex: 1;
+        padding: 15px;
+        border: 1px solid #ddd;
+        outline: none;
+    }
+    
+    .subscribe button {
+        border: none;
+        background: #2c2421;
+        color: white;
+        padding: 0 25px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    
+    .subscribe button:hover {
+        background: #b8860b;
+    }
+    /* =========================
+   FOOTER
+========================= */
+    
+    footer {
+        background: #241c19;
+        color: white;
+    }
+    
+    .footer-container {
+        padding: 65px 7%;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1.5fr;
+        gap: 50px;
+    }
+    
+    .footer-section h2 {
+        font-size: 30px;
+        color: #b89137;
+        margin-bottom: 15px;
+    }
+    
+    .footer-section h2 span {
+        color: white;
+    }
+    
+    .footer-section h3 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 15px;
+        margin-bottom: 18px;
+        color: #d4a72c;
+    }
+    
+    .footer-section p {
+        color: #bdb4b0;
+        font-size: 13px;
+        line-height: 1.8;
+    }
+    
+    .footer-section a {
+        display: block;
+        color: #bdb4b0;
+        font-size: 13px;
+        margin-bottom: 10px;
+        transition: 0.3s;
+    }
+    
+    .footer-section a:hover {
+        color: #b89137;
+        padding-left: 5px;
+    }
+    
+    .copyright {
+        border-top: 1px solid #403532;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .copyright p {
+        color: #999;
+        font-size: 12px;
+    }
+    /* =========================
+   RESPONSIVE
+========================= */
+    
+    @media (max-width: 1000px) {
+        .navbar nav {
+            gap: 15px;
+        }
+        .category-container,
+        .product-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .footer-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (max-width: 700px) {
+        .navbar {
+            height: auto;
+            padding: 20px;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .navbar nav {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .hero {
+            min-height: 550px;
+        }
+        .hero h1 {
+            font-size: 50px;
+        }
+        .section-title h2 {
+            font-size: 36px;
+        }
+        .category-container,
+        .product-container,
+        .footer-container {
+            grid-template-columns: 1fr;
+        }
+        .sale-banner h2 {
+            font-size: 45px;
+        }
+        .about-content h2 {
+            font-size: 40px;
+        }
+        .subscribe {
+            flex-direction: column;
+            gap: 10px;
+        }
+        .subscribe input {
+            padding: 15px;
+        }
+        .subscribe button {
+            padding: 15px;
+        }
+    }
+</style>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+
+        <div class="logo">
+            Haya's <span>Jewellery</span>
+        </div>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#categories">Categories</a>
+            <a href="#sale">Sale</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-icons">
+            <span>🔍</span>
+            <span>♡</span>
+            <span>🛒</span>
+        </div>
+
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="small-title">ELEGANCE • BEAUTY • LUXURY</p>
+
+            <h1>
+                Jewellery That<br>
+                <span>Shines With You</span>
+            </h1>
+
+            <p class="hero-text">
+                Discover beautiful jewellery designed to make every moment special.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#shop" class="btn">Shop Now</a>
+                <a href="#sale" class="btn-outline">View Sale</a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Categories -->
+    <section class="categories" id="categories">
+
+        <div class="section-title">
+            <p>SHOP BY CATEGORY</p>
+            <h2>Find Your Perfect Style</h2>
+        </div>
+
+        <div class="category-container">
+
+            <div class="category-card">
+                <div img src="">
+                </div>
+                <h3>Rings</h3>
+                <p>Elegant rings for every occasion</p>
+                <a href="#">Shop Now →</a>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon"></div>
+                <h3>Necklaces</h3>
+                <p>Beautiful necklaces & chains</p>
+                <a href="#">Shop Now →</a>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon"></div>
+                <h3>Earrings</h3>
+                <p>Classic and modern earrings</p>
+                <a href="#">Shop Now →</a>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon"></div>
+                <h3>Bracelets</h3>
+                <p>Stylish bracelets for you</p>
+                <a href="#">Shop Now →</a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Products -->
+    <section class="products" id="shop">
+
+        <div class="section-title">
+            <p>OUR COLLECTION</p>
+            <h2>Best Selling Jewellery</h2>
+        </div>
+
+        <div class="product-container">
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    <span class="sale-badge">SALE</span>
+                    <div class="fake-jewellery">💍</div>
+                    <button>♡</button>
+                </div>
+
+                <div class="product-info">
+                    <p class="category-name">Gold Collection</p>
+                    <h3>Golden Diamond Ring</h3>
+
+                    <div class="rating">★★★★★</div>
+
+                    <div class="price">
+                        <span>Rs. 18,999</span>
+                        <del>Rs. 22,999</del>
+                    </div>
+
+                    <a href="#" class="buy-btn">Add to Cart</a>
+                </div>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    <span class="sale-badge">20% OFF</span>
+                    <div class="fake-jewellery">📿</div>
+                    <button>♡</button>
+                </div>
+
+                <div class="product-info">
+                    <p class="category-name">Necklace</p>
+                    <h3>Luxury Pearl Necklace</h3>
+
+                    <div class="rating">★★★★★</div>
+
+                    <div class="price">
+                        <span>Rs. 24,999</span>
+                        <del>Rs. 30,999</del>
+                    </div>
+
+                    <a href="#" class="buy-btn">Add to Cart</a>
+                </div>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    <span class="sale-badge">SALE</span>
+                    <div class="fake-jewellery">✨</div>
+                    <button>♡</button>
+                </div>
+
+                <div class="product-info">
+                    <p class="category-name">Earrings</p>
+                    <h3>Diamond Earrings</h3>
+
+                    <div class="rating">★★★★★</div>
+
+                    <div class="price">
+                        <span>Rs. 15,999</span>
+                        <del>Rs. 19,999</del>
+                    </div>
+
+                    <a href="#" class="buy-btn">Add to Cart</a>
+                </div>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    <span class="sale-badge">NEW</span>
+                    <div class="fake-jewellery">💎</div>
+                    <button>♡</button>
+                </div>
+
+                <div class="product-info">
+                    <p class="category-name">Bracelet</p>
+                    <h3>Premium Gold Bracelet</h3>
+
+                    <div class="rating">★★★★★</div>
+
+                    <div class="price">
+                        <span>Rs. 21,999</span>
+                        <del>Rs. 25,999</del>
+                    </div>
+
+                    <a href="#" class="buy-btn">Add to Cart</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Sale Banner -->
+    <section class="sale-banner" id="sale">
+
+        <div>
+            <p>LIMITED TIME OFFER</p>
+
+            <h2>
+                Up To <span>50% OFF</span>
+            </h2>
+
+            <p>
+                Grab your favourite jewellery before the sale ends!
+            </p>
+
+            <a href="#shop" class="white-btn">Shop Sale</a>
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+    <section class="about" id="about">
+
+        <div class="about-content">
+
+            <p class="small-title">ABOUT HAYA'S JEWELLERY</p>
+
+            <h2>
+                Jewellery Made To<br>
+                <span>Celebrate You</span>
+            </h2>
+
+            <p>
+                At Haya's Jewellery, we believe every woman deserves jewellery that makes her feel confident and beautiful. Our collection combines timeless elegance with modern designs.
+            </p>
+
+            <p>
+                From everyday pieces to special occasion jewellery, discover something beautiful for every moment.
+            </p>
+
+            <a href="#" class="btn">Discover More</a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+
+        <p>JOIN OUR COMMUNITY</p>
+
+        <h2>Get Special Offers</h2>
+
+        <p>
+            Subscribe to receive updates about new collections and exclusive sales.
+        </p>
+
+        <div class="subscribe">
+            <input type="email" placeholder="Enter your email">
+            <button>Subscribe</button>
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer id="contact">
+
+        <div class="footer-container">
+
+            <div class="footer-section">
+                <h2>Haya's <span>Jewellery</span></h2>
+
+                <p>
+                    Elegant jewellery for every beautiful moment. Shine bright with Haya's Jewellery.
+                </p>
+            </div>
+
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+
+                <a href="#">Home</a>
+                <a href="#shop">Shop</a>
+                <a href="#categories">Categories</a>
+                <a href="#sale">Sale</a>
+                <a href="#about">About Us</a>
+            </div>
+
+
+            <div class="footer-section">
+                <h3>Categories</h3>
+
+                <a href="#">Rings</a>
+                <a href="#">Necklaces</a>
+                <a href="#">Earrings</a>
+                <a href="#">Bracelets</a>
+            </div>
+
+
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+
+                <p>📍 Karachi, Pakistan</p>
+                <p>📞 +92 300 1234567</p>
+                <p>✉️ info@hayasjewellery.com</p>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            <p>© 2026 Haya's Jewellery. All Rights Reserved.</p>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
